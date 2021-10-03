@@ -20,7 +20,12 @@ bot.command('top10', async (ctx) => {
     try{
         const respostaAxios = await axios.get(`https://ancient-cove-06766.herokuapp.com/top_ones`)
         console.log ("Resposta Axios: " + stringify(respostaAxios))
-        const respostaTelegram = await ctx.reply(respostaAxios.data);
+        let texto = '';
+        const mapeado = respostaAxios.data.map((e, posicao) =>{
+            return `${posicao + 1}\u00B0||${e.nome}\n`
+        })
+        mapeado.forEach(e => texto += e)
+        const respostaTelegram = await ctx.reply(texto);
         console.log ("Resposta Telegram: " + stringify(respostaTelegram))
     }
     catch (e){
