@@ -17,7 +17,7 @@ bot.settings((ctx) => ctx.reply(settingsMessage));
 
 const resolveTop10 = async (ctx, resolve) => {
     try{
-        const respostaAxios = await axios.get(`https://ancient-cove-06766.herokuapp.com/top_ones`)
+        const respostaAxios = await axios.get(`https://ancient-cove-06766.herokuapp.com/top_ones?n=100`)
         // console.log ("Resposta Axios: " + stringify(respostaAxios))
         let texto = '';
         const mapeado = respostaAxios.data.map((e, posicao) =>{
@@ -63,7 +63,7 @@ const resolveRA = async (ctx, resolve) => {
 
 
 
-bot.command('top10', async (ctx) => resolveTop10 (ctx, (resposta) => ctx.reply(resposta)))
+bot.command('top100', async (ctx) => resolveTop10 (ctx, (resposta) => ctx.reply(resposta)))
 bot.command('ra', async (ctx) => resolveRA (ctx, (resposta) => ctx.reply(resposta)))
 // bot.on("text", async (ctx) => {
 //     const texto = ctx.message.text
