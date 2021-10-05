@@ -65,7 +65,7 @@ const resolveRA = async (ctx, resolve) => {
 
 bot.command('top100', async (ctx) => resolveTop10 (ctx, (resposta) => ctx.reply(resposta)))
 bot.command('ra', async (ctx) => resolveRA (ctx, (resposta) => ctx.reply(resposta)))
-bot.command('enade', async (ctx) => ctx.reply ('Está sem o que fazer? Tenho uma ideia: Vai estudar!'))
+bot.command('enade', async (ctx) => ctx.reply ('/enade: Está sem o que fazer? Tenho uma ideia: Vai estudar!'))
 
 // bot.on("text", async (ctx) => {
 //     const texto = ctx.message.text
