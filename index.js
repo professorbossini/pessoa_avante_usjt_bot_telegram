@@ -64,7 +64,7 @@ const resolveRA = async (ctx, resolve) => {
 
 
 bot.command('top100', async (ctx) => resolveTop10 (ctx, (resposta) => ctx.reply(resposta)))
-bot.command('ra', async (ctx) => resolveRA (ctx, (resposta) => ctx.reply(resposta)))
+bot.command('avtcoins', async (ctx) => resolveRA (ctx, (resposta) => ctx.reply(resposta)))
 bot.command('enade', async (ctx) => ctx.reply ('/enade: Conheça mais sobre a prova aqui: http://enade.inep.gov.br/enade/'))
 
 // bot.on("text", async (ctx) => {
