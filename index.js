@@ -21,7 +21,9 @@ const resolveTop10 = async (ctx, resolve) => {
         // console.log ("Resposta Axios: " + stringify(respostaAxios))
         let texto = '';
         const mapeado = respostaAxios.data.map((e, posicao) =>{
-            return `${posicao + 1}\u00B0. ${e.nome.split(' ').slice(0, 3).join(' ')} tem ${e.avtCoins} avtcoins.\n`
+            // return `${posicao + 1}\u00B0. ${e.nome.split(' ').slice(0, 3).join(' ')} tem ${e.avtCoins} avtcoins.\n`
+            return `${posicao + 1}\u00B0. ${e.nome} tem ${e.avtCoins} avtcoins.\n`
+
         })
         mapeado.forEach(e => texto += e)
         const respostaTelegram = await resolve (texto);
