@@ -63,11 +63,7 @@ const resolveRA = async (ctx, resolve) => {
 
 
 const textoNews = `
-  19/10/2021: Avtcoins pelo questionário (Leia)
-  19/10/2021: Avtcoins pelas presenças em aula até o dia 13/10
-  19/10/2021: Avtcoins pelos puzzles (Iara)
-  19/10/2021: Avtcoins sobre a prova de tópicos diversos (Bossini)
-`
+  19/10/2021:\nAvtcoins pelo questionário (Leia)\nAvtcoins pelas presenças em aula até o dia 13/10\nAvtcoins pelos puzzles (Iara)\nAvtcoins sobre a prova de tópicos diversos (Bossini)`
 bot.command('top100', async (ctx) => resolveTop10 (ctx, (resposta) => ctx.reply(resposta)))
 bot.command('avtcoins', async (ctx) => resolveRA (ctx, (resposta) => ctx.reply(resposta)))
 bot.command('enade', async (ctx) => ctx.reply ('/enade: Conheça mais sobre a prova aqui: http://enade.inep.gov.br/enade/'))
