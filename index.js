@@ -7,7 +7,7 @@ const { stringify } = require ('flatted');
 const bot = new Telegraf(process.env.TOKEN);
 
 const startMessage = "Sou o bot Avante USJT! Consulte já a sua pontuação. /help para mais detalhes.";
-const helpMessage = "I. /avtcoins 'seura' sem as aspas para ver a sua posição.\nII. /top100 para ver o top 100.";
+const helpMessage = "I. /avtcoins 'seura' sem as aspas para ver a sua posição.\nII. /top100 para ver o top 100.\nIII. /news para saber as últimas atualizações.";
 const settingsMessage = "No settings at the moment";
 const sorryMessage = "Desculpe, ainda não sei nada sobre isso.";
 
