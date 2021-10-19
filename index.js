@@ -21,7 +21,7 @@ const resolveTop10 = async (ctx, resolve) => {
         // console.log ("Resposta Axios: " + stringify(respostaAxios))
         let texto = '';
         const mapeado = respostaAxios.data.map((e, posicao) =>{
-            return `${posicao + 1}\u00B0. ${e.nome.split(' ').slice(0, 2).join(' ')} tem ${e.avtCoins} avtcoins.\n`
+            return `${posicao + 1}\u00B0. ${e.nome.split(' ').slice(0, 3).join(' ')} tem ${e.avtCoins} avtcoins.\n`
         })
         mapeado.forEach(e => texto += e)
         const respostaTelegram = await resolve (texto);
@@ -62,10 +62,16 @@ const resolveRA = async (ctx, resolve) => {
 
 
 
-
+const textoNews = `
+  19/10/2021: Avtcoins pelo questionário (Leia)
+  19/10/2021: Avtcoins pelas presenças em aula até o dia 13/10
+  19/10/2021: Avtcoins pelos puzzles (Iara)
+  19/10/2021: Avtcoins sobre a prova de tópicos diversos (Bossini)
+`
 bot.command('top100', async (ctx) => resolveTop10 (ctx, (resposta) => ctx.reply(resposta)))
 bot.command('avtcoins', async (ctx) => resolveRA (ctx, (resposta) => ctx.reply(resposta)))
 bot.command('enade', async (ctx) => ctx.reply ('/enade: Conheça mais sobre a prova aqui: http://enade.inep.gov.br/enade/'))
+bot.command('news',  async (ctx) => ctx.reply (textoNews))
 
 // bot.on("text", async (ctx) => {
 //     const texto = ctx.message.text
