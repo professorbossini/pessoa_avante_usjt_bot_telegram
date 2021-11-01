@@ -63,7 +63,7 @@ const resolveRA = async (ctx, resolve) => {
 
 
 const news = {
-  '01/11/2021 16h05': '\nAvtcoins pela entrega do vídeo sobre o Avante! (atualização finalida)',
+  '01/11/2021 16h05': '\nAvtcoins pela entrega do vídeo sobre o Avante! (atualização finalizada)',
   '31/10/2021 18h20': '\nAvtcoins pela trilha de perspectivas e questionário do estudante (questionários respondidos até 20/10/2021)\nAvtcoins pelas presenças em aula até o dia 27/10/2021',
   '19/10/2021': '\nAvtcoins pela trilha de perspectivas e questionário do estudante (em andamento)\nAvtcoins pelas presenças em aula até o dia 13/10\nAvtcoins pelos puzzles - trilha de vídeos (atualização finalizada)\nAvtcoins da prova de tópicos gerais cujo prazo final era 13/10 (atualização finalizada)'
 }
