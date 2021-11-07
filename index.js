@@ -5,8 +5,8 @@ const { Telegraf } = require("telegraf");
 const { stringify } = require ('flatted');
 
 const bot = new Telegraf(process.env.TOKEN);
-const {BACKEND_URL, PORT, PROTOCOL} = process.env
-const URL_FINAL = `${PROTOCOL ? PROTOCOL: ''}://${BACKEND_URL}${PORT ? ':' + PORT : ''}`
+const {BACKEND_URL, PORT, PROTOCOLO} = process.env
+const URL_FINAL = `${PROTOCOLO ? PROTOCOLO: ''}://${BACKEND_URL}${PORT ? ':' + PORT : ''}`
 console.log(URL_FINAL)
 
 const startMessage = "Sou o bot Avante USJT! Consulte já a sua pontuação. /help para mais detalhes.";
