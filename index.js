@@ -7,6 +7,7 @@ const { stringify } = require ('flatted');
 const bot = new Telegraf(process.env.TOKEN);
 const {BACKEND_URL, PORT=3000} = process.env
 const URL_FINAL = `http://${BACKEND_URL}${PORT ? ':' + PORT : ''}`
+console.log(URL_FINAL)
 
 const startMessage = "Sou o bot Avante USJT! Consulte já a sua pontuação. /help para mais detalhes.";
 const helpMessage = "I. /avtcoins 'seura' sem as aspas para ver a sua posição.\nII. /top100 para ver o top 100.\nIII. /news para saber as últimas atualizações.";
