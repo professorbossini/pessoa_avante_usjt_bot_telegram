@@ -5,6 +5,8 @@ const { Telegraf } = require("telegraf");
 const { stringify } = require ('flatted');
 
 const bot = new Telegraf(process.env.TOKEN);
+const {BACKEND_URL, PORT=3000} = process.env
+const URL_FINAL = `http://${BACKEND_URL}${PORT ? ':' + PORT : ''}`
 
 const startMessage = "Sou o bot Avante USJT! Consulte já a sua pontuação. /help para mais detalhes.";
 const helpMessage = "I. /avtcoins 'seura' sem as aspas para ver a sua posição.\nII. /top100 para ver o top 100.\nIII. /news para saber as últimas atualizações.";
@@ -17,7 +19,7 @@ bot.settings((ctx) => ctx.reply(settingsMessage));
 
 const resolveTop10 = async (ctx, resolve) => {
     try{
-        const respostaAxios = await axios.get(`https://ancient-cove-06766.herokuapp.com/top_ones?n=100`)
+        const respostaAxios = await axios.get(`${URL_FINAL}/top_ones?n=100`)
         // console.log ("Resposta Axios: " + stringify(respostaAxios))
         let texto = '';
         const mapeado = respostaAxios.data.map((e, posicao) =>{
@@ -38,11 +40,30 @@ const resolveTop10 = async (ctx, resolve) => {
 const resolveRA = async (ctx, resolve) => {
     try {
       const ra = ctx.message.text.split(' ')[1];
-      const respostaAxios = await axios.get(`https://ancient-cove-06766.herokuapp.com/myself_among_others?ra=${ra}`)
+      const respostaAxios = await axios.get(`${URL_FINAL}/myself_among_others?ra=${ra}`)
     //   console.log ("Resposta Axios: " + stringify(respostaAxios.data))
       const aluno = respostaAxios.data.find(aluno => aluno.ra === ra)
      
       const respostaTelegram = await resolve(`Olá, ${aluno.nome.trim()}. Sua posição é ${aluno.posicao}\u00B0. Você tem ${aluno.avtCoins} avtcoins.`);
+    //   console.log ("Resposta Telegram: " + stringify(respostaTelegram))
+    } catch (err) {
+      console.log(err);
+      resolve('RA não encontrado. Consulte o suporte.')
+    //   ctx.reply();
+    }
+  }
+
+  const resolveHistorico = async (ctx, resolve) => {
+    try {
+      const ra = ctx.message.text.split(' ')[1];
+      const respostaAxios = await axios.get(`${URL_FINAL}/myself_among_others?ra=${ra}`)
+    //   console.log ("Resposta Axios: " + stringify(respostaAxios.data))
+      const aluno = respostaAxios.data.find(aluno => aluno.ra === ra)
+      const historico = Object.entries(aluno.historico).reduce((res, atual) => {
+        const [key, value] = atual;
+        return res + `${key}: ${value}\n*********\n`
+      }, '')
+      const respostaTelegram = await resolve(historico);
     //   console.log ("Resposta Telegram: " + stringify(respostaTelegram))
     } catch (err) {
       console.log(err);
@@ -63,6 +84,7 @@ const resolveRA = async (ctx, resolve) => {
 
 
 const news = {
+  '06/11/2021 22h52': '\nUse o comando /historico seura para visualizar as formas como obteve seus avtcoins!',
   '01/11/2021 16h05': '\nAvtcoins pela entrega do vídeo sobre o Avante! (atualização finalizada)',
   '31/10/2021 18h20': '\nAvtcoins pela trilha de perspectivas e questionário do estudante (questionários respondidos até 20/10/2021)\nAvtcoins pelas presenças em aula até o dia 27/10/2021',
   '19/10/2021': '\nAvtcoins pela trilha de perspectivas e questionário do estudante (em andamento)\nAvtcoins pelas presenças em aula até o dia 13/10\nAvtcoins pelos puzzles - trilha de vídeos (atualização finalizada)\nAvtcoins da prova de tópicos gerais cujo prazo final era 13/10 (atualização finalizada)'
@@ -75,6 +97,7 @@ bot.command('top100', async (ctx) => resolveTop10 (ctx, (resposta) => ctx.reply(
 bot.command('avtcoins', async (ctx) => resolveRA (ctx, (resposta) => ctx.reply(resposta)))
 bot.command('enade', async (ctx) => ctx.reply ('/enade: Conheça mais sobre a prova aqui: http://enade.inep.gov.br/enade/'))
 bot.command('news',  async (ctx) => ctx.reply (textoNews))
+bot.command('historico', async (ctx) => resolveHistorico (ctx, (resposta) => ctx.reply(resposta)))
 
 // bot.on("text", async (ctx) => {
 //     const texto = ctx.message.text
