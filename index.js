@@ -10,7 +10,7 @@ const URL_FINAL = `${PROTOCOLO ? PROTOCOLO + "://": ''}${BACKEND_URL}${PORTA ? '
 console.log(URL_FINAL)
 
 const startMessage = "Sou o bot Avante USJT! Consulte já a sua pontuação. /help para mais detalhes.";
-const helpMessage = "I. /avtcoins 'seura' sem as aspas para ver a sua posição.\nII. /top100 para ver o top 100.\nIII. /news para saber as últimas atualizações.";
+const helpMessage = "I. /avtcoins 'seura' sem as aspas para ver a sua posição.\nII. /top100 para ver o top 100.\nIII. /news para saber as últimas atualizações.\nIV. /historico 'seura' para ver as formas como obteve seus avtcoins.\n";
 const settingsMessage = "No settings at the moment";
 const sorryMessage = "Desculpe, ainda não sei nada sobre isso.";
 
@@ -88,7 +88,8 @@ const news = {
   '19/10/2021': '\nAvtcoins pela trilha de perspectivas e questionário do estudante (em andamento)\nAvtcoins pelas presenças em aula até o dia 13/10\nAvtcoins pelos puzzles - trilha de vídeos (atualização finalizada)\nAvtcoins da prova de tópicos gerais cujo prazo final era 13/10 (atualização finalizada)',
   '31/10/2021 18h20': '\nAvtcoins pela trilha de perspectivas e questionário do estudante (questionários respondidos até 20/10/2021)\nAvtcoins pelas presenças em aula até o dia 27/10/2021',
   '01/11/2021 16h05': '\nAvtcoins pela entrega do vídeo sobre o Avante! (atualização finalizada)',
-  '06/11/2021 22h52': '\nUse o comando /historico seura para visualizar as formas como obteve seus avtcoins!',
+  '06/11/2021 22h52': "\nUse o comando /historico 'seura' para visualizar as formas como obteve seus avtcoins!",
+  '14/11/2021 00h56': '\nAvtcoins pelas presenças em aula até o dia 10/11/2021\nLista de datas de presença ordenada\nComando /help atualizado',
 }
 let textoNews = ''
 for (atualizacao in news) {
