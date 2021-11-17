@@ -88,8 +88,9 @@ const news = {
   '19/10/2021': '\nAvtcoins pela trilha de perspectivas e questionário do estudante (em andamento)\nAvtcoins pelas presenças em aula até o dia 13/10\nAvtcoins pelos puzzles - trilha de vídeos (atualização finalizada)\nAvtcoins da prova de tópicos gerais cujo prazo final era 13/10 (atualização finalizada)',
   '31/10/2021 18h20': '\nAvtcoins pela trilha de perspectivas e questionário do estudante (questionários respondidos até 20/10/2021)\nAvtcoins pelas presenças em aula até o dia 27/10/2021',
   '01/11/2021 16h05': '\nAvtcoins pela entrega do vídeo sobre o Avante! (atualização finalizada)',
-  '06/11/2021 22h52': "\nUse o comando /historico 'seura' para visualizar as formas como obteve seus avtcoins!",
+  '06/11/2021 22h52': "\nUse o comando /historico 'seura' para visualizar as formas como obteve seus avtcoins",
   '14/11/2021 00h56': '\nAvtcoins pelas presenças em aula até o dia 10/11/2021\nLista de datas de presença ordenada\nComando /help atualizado',
+  '17/11/2021 19h48': '\nAvtcoins pelas entregas dos alvos do Blackboard. Inclui 50 avtcoins extras pelo Alvo 7. Ainda não inclui 20 avtcoins extras pelos 12 pontos no simulado',
 }
 let textoNews = ''
 for (atualizacao in news) {
