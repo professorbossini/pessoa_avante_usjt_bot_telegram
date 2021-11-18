@@ -92,6 +92,7 @@ const news = {
   '14/11/2021 00h56': '\nAvtcoins pelas presenças em aula até o dia 10/11/2021\nLista de datas de presença ordenada\nComando /help atualizado',
   '17/11/2021 19h48': '\nAvtcoins pelas entregas dos alvos do Blackboard. Inclui 50 avtcoins extras pelo Alvo 7. Ainda não inclui 20 avtcoins extras pelos 12 pontos no simulado',
   '17/11/2021 23h17': '\nAvtcoins pela entrega do simulado ENADE, valendo para os que conseguiram 12+ pontos no simulado',
+  '18/11/2021 14h10': '\nAvtcoins provenientes do Tópico Desafios - Obtenha AVANTE COINS no Classroom: cálculo finalizado',
 }
 let textoNews = ''
 for (atualizacao in news) {
