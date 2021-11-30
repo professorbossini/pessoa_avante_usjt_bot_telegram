@@ -68,8 +68,9 @@ const resolveRA = async (ctx, resolve) => {
       const percentual = (aluno.percentual * 100).toPrecision(2)
       const totalAcertos = aluno.totalAcertos
       let resposta = `Olá, ${nome}. Você faz ${curso} no campus ${campus}, certo? `
-      resposta = resposta.concat(`Você acertou ${totalAcertos} de questões, ou seja, ${percentual}% da prova. `)
-      resposta = resposta.concat ("Veja as suas respostas comparadas com o gabarito.\n")
+      resposta = resposta.concat(`Você acertou ${totalAcertos} questões, ou seja, ${percentual}% da prova. `)
+      resposta = resposta.concat ("Veja as suas respostas comparadas com o gabarito. ")
+      resposta = resposta.concat ("Se a sua resposta for 'R', isso quer dizer que ela estava rasurada, que você não a marcou no caderno etc.\n")
       resposta = resposta.concat ("Q | Sua resposta | Gabarito | Acerto/Erro\n")
       aluno['mapa_questoes_respostas'].forEach(q => {
         resposta = resposta.concat (`Q${q.questao} | ${q.respostaAluno} | ${q.gabarito} | ${q.respostaAluno === q.gabarito ? '✅': '❌'}`)
@@ -143,6 +144,8 @@ const news = {
   '17/11/2021 23h17': '\nAvtcoins pela entrega do simulado ENADE, valendo para os que conseguiram 12+ pontos no simulado',
   '18/11/2021 14h10': '\nAvtcoins provenientes do Tópico Desafios - Obtenha AVANTE COINS no Classroom: cálculo finalizado',
   '27/11/2021 13h50': '\nAvtcoins pela entrega do caderno de prova ENADE adicionados',
+  '30/11/2021 10h41': "\nAlunos que entregaram o caderno de questões no dia da prova podem consultar o seu desempenho com o comando /meuEnade 'ra'",
+
 }
 let textoNews = ''
 for (atualizacao in news) {
