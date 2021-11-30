@@ -55,10 +55,32 @@ const resolveRA = async (ctx, resolve) => {
   }
   const resolveMeuEnade = async (ctx, resolve) => {
     try{
-
+      const respostaAxios = await axios.get(`${URL_FINAL}/resultados_enade`)
+      const ra = ctx.message.text.split(' ')[1]
+      const aluno = respostaAxios.data.find (a => a.ra === ra)
+      if (!ra || !aluno){
+        resolve ("RA não encontrado. Você entregou o caderno de questões?")
+        return
+      }
+      const nome = aluno.nome
+      const campus = aluno.campus
+      const curso = aluno.curso
+      const percentual = (aluno.percentual * 100).toPrecision(2)
+      const totalAcertos = aluno.totalAcertos
+      let resposta = `Olá, ${nome}. Você faz ${curso} no campus ${campus}, certo? `
+      resposta = resposta.concat(`Você acertou ${totalAcertos} de questões, ou seja, ${percentual}% da prova. `)
+      resposta = resposta.concat ("Veja as suas respostas comparadas com o gabarito.\n")
+      resposta = resposta.concat ("Q | Sua resposta | Gabarito | Acerto/Erro\n")
+      aluno['mapa_questoes_respostas'].forEach(q => {
+        resposta = resposta.concat (`Q${q.questao} | ${q.respostaAluno} | ${q.gabarito} | ${q.respostaAluno === q.gabarito ? '✅': '❌'}`)
+        resposta = resposta.concat ("\n*********\n")
+      })
+      resolve(resposta)
     }
     catch(e){
       console.log ("resolveMeuEnade", e)
+      resolve('Erro. Consulte o suporte.')
+
     }
   }
 
