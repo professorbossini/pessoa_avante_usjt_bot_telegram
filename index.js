@@ -145,6 +145,7 @@ const news = {
   '18/11/2021 14h10': '\nAvtcoins provenientes do Tópico Desafios - Obtenha AVANTE COINS no Classroom: cálculo finalizado',
   '27/11/2021 13h50': '\nAvtcoins pela entrega do caderno de prova ENADE adicionados',
   '30/11/2021 10h41': "\nAlunos que entregaram o caderno de questões no dia da prova podem consultar o seu desempenho com o comando /meuEnade 'ra'",
+  '30/11/2021 11h34': "\nAvtcoins pelas presenças em aula até o dia 24/11/2021. A partir do dia 01/12/2021, haverá um formulário de recursos para que todos possam submeter questionamentos para análise. Aguarde.",
 
 }
 let textoNews = ''
