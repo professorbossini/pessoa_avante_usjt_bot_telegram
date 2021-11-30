@@ -53,6 +53,33 @@ const resolveRA = async (ctx, resolve) => {
     //   ctx.reply();
     }
   }
+  const resolveMeuEnade = async (ctx, resolve) => {
+    try{
+
+    }
+    catch(e){
+      console.log ("resolveMeuEnade", e)
+    }
+  }
+
+  const resultadoGeralEnade = async (ctx, resolve) => {
+    try{
+      const respostaAxios = await axios.get(`${URL_FINAL}/resultados_enade`)
+      let resposta = ""
+      let posicao = 1
+      respostaAxios.data.forEach (a => {
+        resposta = resposta.concat (`${posicao++}. ${a.nome} [${(a.percentual * 100).toPrecision(2)}%][${a.curso}][${a.campus}]`)
+        resposta = resposta.concat ('\n*********\n')
+      })
+      resolve(resposta)
+    }
+    catch(e){
+      console.log ("resolveMeuEnade", e)
+      resolve('Erro. Consulte o suporte.')
+    }
+  }
+
+  
 
   const resolveHistorico = async (ctx, resolve) => {
     try {
@@ -104,6 +131,8 @@ bot.command('avtcoins', async (ctx) => resolveRA (ctx, (resposta) => ctx.reply(r
 bot.command('enade', async (ctx) => ctx.reply ('/enade: Conheça mais sobre a prova aqui: http://enade.inep.gov.br/enade/'))
 bot.command('news',  async (ctx) => ctx.reply (textoNews))
 bot.command('historico', async (ctx) => resolveHistorico (ctx, (resposta) => ctx.reply(resposta)))
+bot.command('meuEnade', async (ctx) => resolveMeuEnade (ctx, (resposta) => ctx.reply(resposta)))
+bot.command('resultadoGeralEnade', async (ctx) => resultadoGeralEnade (ctx, (resposta) => ctx.reply(resposta)))
 
 // bot.on("text", async (ctx) => {
 //     const texto = ctx.message.text
