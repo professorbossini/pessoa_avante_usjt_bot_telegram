@@ -147,7 +147,7 @@ const news = {
   '30/11/2021 10h41': "\nAlunos que entregaram o caderno de questões no dia da prova podem consultar o seu desempenho com o comando /meuEnade 'ra'",
   '30/11/2021 11h34': "\nAvtcoins pelas presenças em aula até o dia 24/11/2021. A partir do dia 01/12/2021, haverá um formulário de recursos para que todos possam submeter questionamentos para análise. Aguarde",
   '30/11/2021 15h41': "\nAvtcoins pela atividade que substitui o Blackboard",
-  '06/12/2021 14h29': "\nComando histórico inclui o percentual final entregue aos professores",
+  '06/12/2021 14h29': "\nComando /historico 'ra' inclui o percentual final entregue aos professores",
 
 }
 let textoNews = ''
